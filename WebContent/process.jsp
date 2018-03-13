@@ -9,11 +9,17 @@
 <body>
 
 <jsp:useBean id="user" class="org.koushik.javabrains.dto.User" scope="request">
-	<!-- if propertyName same as parameter name it will be assigned automatic -->
-	<jsp:setProperty property="userName" name="user"  />
+	<!-- if propertyNames in User class same as parameters names it will be assigned automatic -->
+	<jsp:setProperty property="*" name="user"  />
 </jsp:useBean>
 
-Hello <jsp:getProperty property="userName" name="user"/>
+user id :<jsp:getProperty property="userId" name="user"/><br>
+user name :<jsp:getProperty property="userName" name="user"/><br>
+address1 :<jsp:getProperty property="address1" name="user"/><br>
+address2 :<jsp:getProperty property="address2" name="user"/><br>
+city :<jsp:getProperty property="city" name="user"/><br>
+state :<jsp:getProperty property="state" name="user"/><br>
+pincode :<jsp:getProperty property="pincode" name="user"/><br>
 
 </body>
 </html>
