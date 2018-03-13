@@ -7,7 +7,13 @@
 <title>Login Success</title>
 </head>
 <body>
+
+<!-- use JSTL tags -->
+<jsp:useBean id="user" class="org.koushik.javabrains.dto.User" scope="request">
+	<jsp:setProperty property="userName" name="user" value="from setProperty" /> <!-- as an init param for this bean -->
+</jsp:useBean>
+
 <p>Login Success</p>
-<p> Hello <%= ((User)request.getAttribute("user")).getUserName() %> </p>
+<p> Hello <jsp:getProperty property="userName" name="user"/> </p>
 </body>
 </html>
