@@ -1,6 +1,8 @@
 package org.koushik.javabrains;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -37,8 +39,9 @@ public class LoginServlet extends HttpServlet {
 		ServletService service = new ServletService();
 		boolean result = service.authenticate(userId, password);
 		if (result) {
-			request.getSession().setAttribute("user", service.getUserDetails(userId));
-			response.sendRedirect("success.jsp");
+			request.setAttribute("user", service.getUserDetails(userId));
+			RequestDispatcher dispatcher = request.getRequestDispatcher("success.jsp");
+			dispatcher.forward(request, response);// will forward without changing the page URL in address bar
 			return;
 		}
 

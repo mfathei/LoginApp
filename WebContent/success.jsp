@@ -8,6 +8,6 @@
 </head>
 <body>
 <p>Login Success</p>
-<p> Hello <%= ((User)session.getAttribute("user")).getUserName() %> </p>
+<p> Hello <%= ((User)request.getAttribute("user")).getUserName() %> </p>
 </body>
 </html>
