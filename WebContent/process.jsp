@@ -9,7 +9,8 @@
 <body>
 
 <jsp:useBean id="user" class="org.koushik.javabrains.dto.User" scope="request">
-	<jsp:setProperty property="userName" name="user" param="userName" />
+	<!-- if propertyName same as parameter name it will be assigned automatic -->
+	<jsp:setProperty property="userName" name="user"  />
 </jsp:useBean>
 
 Hello <jsp:getProperty property="userName" name="user"/>
